@@ -24,7 +24,7 @@ public class Converter {
 
     /**
      * Конвертируем евро в рубли.
-     * @param value евро.
+     * @param value евроо.
      * @return Рубли.
      */
     public int euroToRuble(int value) {
