@@ -9,7 +9,7 @@ public class CalculatorTest {
     public void whenAddOnePlusOneThenTwo() {
         Calculator calc = new Calculator();
         calc.add(1D, 1D);
-        double result = calc.GetResult();
+        double result = calc.getResult();
         double expected = 2D;
         assertThat(result, is(expected));
     }
@@ -18,7 +18,7 @@ public class CalculatorTest {
     public void whenMinOneMinusOneThenOne() {
         Calculator calc = new Calculator();
         calc.min(2D, 1D);
-        double result = calc.GetResult();
+        double result = calc.getResult();
         double expected = 1D;
         assertThat(result, is(expected));
     }
@@ -27,7 +27,7 @@ public class CalculatorTest {
     public void whenDelTwoOnTwoThenTwo() {
         Calculator calc = new Calculator();
         calc.del(4D, 2D);
-        double result = calc.GetResult();
+        double result = calc.getResult();
         double expected = 2D;
         assertThat(result, is(expected));
     }
@@ -36,7 +36,7 @@ public class CalculatorTest {
     public void whenUmnTwoOnTwoThenFore() {
         Calculator calc = new Calculator();
         calc.umn(2D, 2D);
-        double result = calc.GetResult();
+        double result = calc.getResult();
         double expected = 4D;
         assertThat(result, is(expected));
     }
