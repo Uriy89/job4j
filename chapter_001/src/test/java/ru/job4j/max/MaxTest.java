@@ -15,7 +15,7 @@ public class MaxTest {
     @Test
     public void whenFirstOrSecondLessThird() {
         Max val = new Max();
-        int result = val.max(2, 3, 8);
+        int result = val.max(2, 1, 8);
         assertThat(result, is(8));
     }
 }
