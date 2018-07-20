@@ -9,7 +9,7 @@ public class MaxTest {
     @Test
     public void whenFirstLessSecond() {
         Max val = new Max();
-        int result = val.maxim(1, 4);
+        int result = val.maxim(2, 4);
         assertThat(result, is(4));
     }
 }
