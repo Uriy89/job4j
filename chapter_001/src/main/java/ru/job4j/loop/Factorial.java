@@ -6,6 +6,11 @@ package ru.job4j.loop;
  * @since 21.07.2018
  */
 public class Factorial {
+    /**
+     * Факториал числа.
+     * @param n положительное целое число.
+     * @return факториал n.
+     */
     public int calc(int n) {
         int f = 1;
         if(n == 0) {
