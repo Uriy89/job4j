@@ -7,8 +7,6 @@ public class Max {
         return first > second ? first : second;
     }
     public int max(int first, int second, int third) {
-        int temp = this.maxim(first, second);
-        int temp1 = this.maxim(temp, third);
-        return temp1;
+        return maxim(maxim(first, second), third);
     }
 }
