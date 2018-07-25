@@ -17,11 +17,4 @@ public class FactoriaTest {
         int result = umn.calc(0);
         assertThat(result, is(1));
     }
-    @Test
-    public void whenCalculateFactorialNegativNumber() {
-        Factorial umn = new Factorial();
-        int result = umn.calc(-2);
-        assertThat(result, is(0));
-    }
-
 }
