@@ -4,11 +4,10 @@ public class MatrixCheck {
     public boolean mono(boolean[][] data) {
         boolean result = true;
             for (int i = 0; i < data.length; i++) {
-                int j = i;
-                if (i == j && data[i][j] == false) {
+                if (data[0][0] != data[i][i] || data[0][data.length - i - 1] != data[data.length - i - 1][i]) {
                     result = false;
+                }
             }
-        }
         return result;
     }
 }
