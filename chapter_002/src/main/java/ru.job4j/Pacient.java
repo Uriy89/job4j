@@ -1,5 +1,5 @@
 package ru.job4j;
 
-public class Ptient {
+public class Pacient {
     String name;
 }
