@@ -58,7 +58,7 @@ public class Tracker {
      * @return копия массива.
      */
     public Item[] findAll() {
-        Item[] result = new Item;
+        Item[] result = new Item[100];
         for (Item item : items) {
             if(result != null) {
                 Arrays.copyOf(this.items, items.length);

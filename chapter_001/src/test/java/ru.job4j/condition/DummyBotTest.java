@@ -21,7 +21,7 @@ public class DummyBotTest {
    }
 
    @Test
-    public void ByOnBot() {
+    public void byOnBot() {
        DummyBot bot = new DummyBot();
        assertThat(
                bot.answer("Пока"),
