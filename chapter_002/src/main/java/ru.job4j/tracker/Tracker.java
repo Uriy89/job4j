@@ -31,6 +31,7 @@ public class Tracker {
         for (int i = 0; i < position; i++) {
             if (item.getId().equals(id)) {
                 items[i] = item;
+                item.setId(id);
                 break;
             }
         }
@@ -39,9 +40,13 @@ public class Tracker {
      *  Метод удаляет ячейку в массиве.
      */
     public boolean delete(String id) {
-        for (Item item : this.items) {
-            if (item.getId().equals(id)) {
-                System.arraycopy(this.items, position, this.items, position - 1, items.length);
+        int count = 0;
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].equals(id)) {
+                items[i] = items[count];
+                System.arraycopy(this.items, position, this.items, position, items.length);
+                position--;
+                break;
             }
         }
         return true;
@@ -59,13 +64,14 @@ public class Tracker {
      * @return Массив с проверенными элементами.
      */
     public Item[] findByName(String key) {
-        Item[] result = new Item[]{};
+        int count = 0;
+        Item[] result = new Item[position];
         for (int i = 0; i < result.length; i++) {
             if (items[position].equals(key)) {
-                result[i] = items[position];
+                result[count++] = items[position];
             }
         }
-        return Arrays.copyOf(result, result.length);
+        return Arrays.copyOf(result, count);
     }
     /**
      *  Метод проверяет элементы массива.

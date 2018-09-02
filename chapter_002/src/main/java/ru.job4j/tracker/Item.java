@@ -9,6 +9,10 @@ public class Item {
         this.desc = desc;
         this.create = create;
     }
+    public Item(String id, String name) {
+        this.name = name;
+        this.id = id;
+    }
     public String getName() {
         return this.name;
     }

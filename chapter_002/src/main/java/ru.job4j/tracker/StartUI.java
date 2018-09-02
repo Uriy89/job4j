@@ -62,13 +62,20 @@ public class StartUI {
             } else if (SHOW.equals(answer)) {
                 tracker.findAll();
             } else if (EDIT.equals(answer)){
-                tracker.replace();
+                String id = this.input.ask("Введите id: ");
+                String name = this.input.ask("Введите имя новой заявки: ");
+                String desc = this.input.ask("Введите описание новой заявки: ");
+                Item item = new Item(name, desc);
+                tracker.replace(id, item);
             } else if (DELETE.equals(answer)) {
-                tracker.delete();
+                String id = this.input.ask("Введите id: ");
+                tracker.delete(id);
             } else if (FINDBYID.equals(answer)) {
-                tracker.findById();
+                String id = this.input.ask("Введите id: ");
+                tracker.findById(id);
             } else if (FINDBYNAME.equals(answer)) {
-                tracker.findByName();
+                String key = this.input.ask("Введите ключевое слово: ");
+                tracker.findByName(key);
             } else if (EXIT.equals(answer)) {
                 exit = true;
             }
@@ -81,7 +88,7 @@ public class StartUI {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки: ");
         String desc = this.input.ask("Введите описание заявки: ");
-        Item item = new Item(name, desc, 1);
+        Item item = new Item(name, desc);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
