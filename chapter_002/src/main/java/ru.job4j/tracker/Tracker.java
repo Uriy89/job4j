@@ -24,6 +24,12 @@ public class Tracker {
         this.items[this.position++] = item;
         return item;
     }
+    public void showALLItems() {
+        for (int i = 0; i < items.length; i++) {
+            System.out.println(Arrays.toString(items));
+            break;
+        }
+    }
     /**
      *  Метод заменяет ячеку в массиве.
      */
@@ -36,15 +42,16 @@ public class Tracker {
             }
         }
     }
+
     /**
      *  Метод удаляет ячейку в массиве.
      */
     public boolean delete(String id) {
         int count = 0;
         for (int i = 0; i < items.length; i++) {
-            if (items[i].equals(id)) {
+            if (items[i].getId().equals(id)) {
                 items[i] = items[count];
-                System.arraycopy(this.items, position, this.items, position, items.length);
+                System.arraycopy(this.items, i + 1, this.items, i, items.length - i - 1);
                 position--;
                 break;
             }
@@ -67,8 +74,8 @@ public class Tracker {
         int count = 0;
         Item[] result = new Item[position];
         for (int i = 0; i < result.length; i++) {
-            if (items[position].equals(key)) {
-                result[count++] = items[position];
+            if (items[i].getName().equals(key)) {
+                result[count++] = items[i];
             }
         }
         return Arrays.copyOf(result, count);

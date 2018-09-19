@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import java.util.Arrays;
 /**
  * @version $Id$
  * @since 0.1
@@ -60,7 +61,7 @@ public class StartUI {
             if (ADD.equals(answer)) {
                 this.createItem();
             } else if (SHOW.equals(answer)) {
-                tracker.findAll();
+                tracker.showALLItems();
             } else if (EDIT.equals(answer)){
                 String id = this.input.ask("Введите id: ");
                 String name = this.input.ask("Введите имя новой заявки: ");

@@ -28,4 +28,11 @@ public class Item {
     public String getId() {
         return this.id;
     }
+    @Override
+    public String toString() {
+        return "Item{id='" + id + '\''
+                + ", name='" + name + '\''
+                + ", desc='" + desc + '\''
+                + ", create=" + create + '}';
+    }
 }
