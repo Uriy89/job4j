@@ -25,10 +25,7 @@ public class Tracker {
         return item;
     }
     public void showALLItems() {
-        for (int i = 0; i < items.length; i++) {
-            System.out.println(Arrays.toString(items));
-            break;
-        }
+        System.out.print(Arrays.toString(items));
     }
     /**
      *  Метод заменяет ячеку в массиве.
@@ -42,7 +39,6 @@ public class Tracker {
             }
         }
     }
-
     /**
      *  Метод удаляет ячейку в массиве.
      */
