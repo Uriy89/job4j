@@ -1,9 +1,9 @@
 package ru.job4j.tracker;
 public class Item {
     private String id;
-    public String name;
-    public String desc;
-    public long create;
+    private String name;
+    private String desc;
+    private long create;
     public Item(String name, String desc, long create) {
         this.name = name;
         this.desc = desc;
