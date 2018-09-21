@@ -50,7 +50,7 @@ public class Logic3T {
         boolean result = true;
         for (int i = 0; i < this.table.length; i++) {
             for (int j = 0; j < this.table.length; j++) {
-                if (this.table[i][j] != null) {
+                if (this.table[i][j].equals(null)) {
                     result = false;
                 }
             }
