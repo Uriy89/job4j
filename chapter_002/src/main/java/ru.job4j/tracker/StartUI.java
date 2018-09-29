@@ -1,5 +1,4 @@
 package ru.job4j.tracker;
-import java.util.Arrays;
 /**
  * @version $Id$
  * @since 0.1
@@ -63,20 +62,13 @@ public class StartUI {
             } else if (SHOW.equals(answer)) {
                 tracker.showALLItems();
             } else if (EDIT.equals(answer)){
-                String id = this.input.ask("Введите id: ");
-                String name = this.input.ask("Введите имя новой заявки: ");
-                String desc = this.input.ask("Введите описание новой заявки: ");
-                Item item = new Item(name, desc);
-                tracker.replace(id, item);
+                this.replaceItem();
             } else if (DELETE.equals(answer)) {
-                String id = this.input.ask("Введите id: ");
-                tracker.delete(id);
+                this.deleteItem();
             } else if (FINDBYID.equals(answer)) {
-                String id = this.input.ask("Введите id: ");
-                tracker.findById(id);
+                this.setFindbyidItem();
             } else if (FINDBYNAME.equals(answer)) {
-                String key = this.input.ask("Введите ключевое слово: ");
-                tracker.findByName(key);
+                this.setFindbynameItem();
             } else if (EXIT.equals(answer)) {
                 exit = true;
             }
@@ -93,6 +85,40 @@ public class StartUI {
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
+    /**
+     * Метод запроса для изменения заявки.
+     */
+    private void replaceItem() {
+        String id = this.input.ask("Введите id: ");
+        String name = this.input.ask("Введите имя новой заявки: ");
+        String desc = this.input.ask("Введите описание новой заявки: ");
+        Item item = new Item(name, desc);
+        this.tracker.replace(id, item);
+    }
+    /**
+     * Метод запроса для удаления заявки.
+     */
+    private void deleteItem() {
+        String id = this.input.ask("Введите id: ");
+        this.tracker.delete(id);
+    }
+    /**
+     * Метод для поиска заявки по имени.
+     */
+    private void setFindbynameItem() {
+        String key = this.input.ask("Введите ключевое слово: ");
+        this.tracker.findByName(key);
+    }
+    /**
+     * Метод запроса для поиска заявки по id.
+     */
+    private void setFindbyidItem() {
+        String id = this.input.ask("Введите id: ");
+        this.tracker.findById(id);
+    }
+    /**
+     * Метод отображает список меню.
+     */
     private void showMenu() {
         System.out.println("Меню.");
         System.out.println("0. Add new Item");

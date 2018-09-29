@@ -1,5 +1,4 @@
 package ru.job4j.tracker;
-
 import java.util.*;
 /**
  * @version $Id$
@@ -30,26 +29,33 @@ public class Tracker {
     /**
      *  Метод заменяет ячеку в массиве.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         for (int i = 0; i < position; i++) {
-            if (item.getId().equals(id)) {
+            if (items[i].getId().equals(id)) {
                 items[i] = item;
                 item.setId(id);
+                System.out.println("Заявка успешно изменина");
                 break;
+            } else {
+                System.out.println("id не найден");
             }
         }
+        return true;
     }
     /**
      *  Метод удаляет ячейку в массиве.
      */
     public boolean delete(String id) {
         int count = 0;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
                 items[i] = items[count];
                 System.arraycopy(this.items, i + 1, this.items, i, items.length - i - 1);
                 position--;
+                System.out.println("Заявка успешно удалена");
                 break;
+            } else {
+                System.out.println("id не найден");
             }
         }
         return true;
