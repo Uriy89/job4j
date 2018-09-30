@@ -24,41 +24,40 @@ public class Tracker {
         return item;
     }
     public void showALLItems() {
-        System.out.print(Arrays.toString(items));
+
+        System.out.println(Arrays.toString(items));
     }
     /**
      *  Метод заменяет ячеку в массиве.
      */
     public boolean replace(String id, Item item) {
+        boolean result = false;
         for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
                 items[i] = item;
                 item.setId(id);
-                System.out.println("Заявка успешно изменина");
+                result = true;
                 break;
-            } else {
-                System.out.println("id не найден");
             }
         }
-        return true;
+        return result;
     }
     /**
      *  Метод удаляет ячейку в массиве.
      */
     public boolean delete(String id) {
+        boolean result = false;
         int count = 0;
         for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
                 items[i] = items[count];
                 System.arraycopy(this.items, i + 1, this.items, i, items.length - i - 1);
                 position--;
-                System.out.println("Заявка успешно удалена");
+                result = true;
                 break;
-            } else {
-                System.out.println("id не найден");
             }
         }
-        return true;
+        return result;
     }
     /**
      * Метод возвращает копию массива без null элементтов.
