@@ -24,7 +24,6 @@ public class Tracker {
         return item;
     }
     public void showALLItems() {
-
         System.out.println(Arrays.toString(items));
     }
     /**

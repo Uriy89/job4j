@@ -61,7 +61,7 @@ public class StartUI {
                 this.createItem();
             } else if (SHOW.equals(answer)) {
                 tracker.showALLItems();
-            } else if (EDIT.equals(answer)){
+            } else if (EDIT.equals(answer)) {
                 this.replaceItem();
             } else if (DELETE.equals(answer)) {
                 this.deleteItem();
