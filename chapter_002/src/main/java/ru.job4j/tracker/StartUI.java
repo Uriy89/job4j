@@ -81,7 +81,7 @@ public class StartUI {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки: ");
         String desc = this.input.ask("Введите описание заявки: ");
-        Item item = new Item(name, desc);
+        Item item = new Item(desc, name);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
@@ -92,7 +92,7 @@ public class StartUI {
         String id = this.input.ask("Введите id: ");
         String name = this.input.ask("Введите имя новой заявки: ");
         String desc = this.input.ask("Введите описание новой заявки: ");
-        Item item = new Item(name, desc);
+        Item item = new Item(desc, name);
         if (this.tracker.replace(id, item)) {
             System.out.println("Заявка успешна изменена");
         } else {
