@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 /**
  * Заполнение масива.
  * @author Yuriy Averianov.

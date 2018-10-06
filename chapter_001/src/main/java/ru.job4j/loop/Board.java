@@ -1,5 +1,4 @@
 package ru.job4j.loop;
-
 /**
  * Шахмотная доска в псевдографике.
  * @author Yuriy Averianov.

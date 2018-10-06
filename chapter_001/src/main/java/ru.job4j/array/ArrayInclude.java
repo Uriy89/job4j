@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 public class ArrayInclude {
     public int[] concat(int[] a, int[] b) {
         int[] arr = new int[a.length + b.length];

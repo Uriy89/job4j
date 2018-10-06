@@ -1,8 +1,6 @@
 package ru.job4j.array;
-
 import java.sql.Array;
 import java.util.Arrays;
-
 public class ArrayDuplicate {
     public String[] remove(String[] array) {
         int uniq = array.length;

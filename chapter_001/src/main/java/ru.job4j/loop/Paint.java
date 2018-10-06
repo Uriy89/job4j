@@ -1,5 +1,4 @@
 package ru.job4j.loop;
-
 import java.util.function.BiPredicate;
 /**
  * Пирамида в псевдографике.
@@ -14,7 +13,6 @@ public class Paint {
                 height,
                 (row, column) -> row >= column
         );
-
     }
     public String leftTrl(int height) {
         return  this.loopBy(

@@ -1,5 +1,4 @@
 package ru.job4j.loop;
-
 /**
  * Подсчет суммы чётных чисел в диапазоне.
  * @autor Yuriy Averianov.

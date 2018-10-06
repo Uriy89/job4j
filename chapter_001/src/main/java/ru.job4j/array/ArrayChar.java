@@ -1,12 +1,9 @@
 package ru.job4j.array;
-
 public class ArrayChar {
     private char[] data;
-
     public ArrayChar(String line) {
         this.data = line.toCharArray();
     }
-
     /**
      * Проверяет. что слово начинается с префикса.
      * @param prefix префикс.

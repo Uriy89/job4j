@@ -1,5 +1,4 @@
 package ru.job4j.loop;
-
 /**
  * Вычисление факториала.
  * @author Yuriy Averianov.
