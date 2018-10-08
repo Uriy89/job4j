@@ -137,7 +137,10 @@ public class MenuTracker {
         }
         public void execute(Input input, Tracker tracker) {
             String key = input.ask("Введите имя заявки: ");
-            tracker.findByName(key);
+            Item[] byKey = tracker.findByName(key);
+            for (Item item : byKey) {
+                System.out.println(item);
+            }
         }
 
         public String info() {

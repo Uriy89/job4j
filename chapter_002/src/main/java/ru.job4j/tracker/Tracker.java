@@ -69,7 +69,7 @@ public class Tracker {
      * Если элементы совпадают, они записываются в новый массив.
      * @return Массив с проверенными элементами.
      */
-    public void findByName(String key) {
+    public Item[] findByName(String key) {
         int count = 0;
         Item[] result = new Item[position];
         for (int i = 0; i < result.length; i++) {
@@ -77,7 +77,7 @@ public class Tracker {
                 result[count++] = items[i];
             }
         }
-        System.out.println(Arrays.copyOf(result, count));
+        return Arrays.copyOf(result, count);
     }
     /**
      *  Метод проверяет элементы массива.
