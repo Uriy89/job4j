@@ -23,16 +23,13 @@ public class Tracker {
         this.items[this.position++] = item;
         return item;
     }
-    public void showALLItems() {
-        System.out.println(Arrays.toString(items));
-    }
     /**
      *  Метод заменяет ячеку в массиве.
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int i = 0; i < position; i++) {
-            if (items[i].getId().equals(id)) {
+            if (item != null && items[i].getId().equals(id)) {
                 items[i] = item;
                 item.setId(id);
                 result = true;
@@ -54,6 +51,8 @@ public class Tracker {
                 position--;
                 result = true;
                 break;
+            } else {
+                System.out.println("id не найден");
             }
         }
         return result;
@@ -70,7 +69,7 @@ public class Tracker {
      * Если элементы совпадают, они записываются в новый массив.
      * @return Массив с проверенными элементами.
      */
-    public Item[] findByName(String key) {
+    public void findByName(String key) {
         int count = 0;
         Item[] result = new Item[position];
         for (int i = 0; i < result.length; i++) {
@@ -78,22 +77,25 @@ public class Tracker {
                 result[count++] = items[i];
             }
         }
-        return Arrays.copyOf(result, count);
+        System.out.println(Arrays.copyOf(result, count));
     }
     /**
      *  Метод проверяет элементы массива.
      * @param id - аргумент для сравнения элементов.
      * @return возвращает найденый элемент.
      */
-    protected Item findById(String id) {
+    protected void findById(String id) {
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
+            } else {
+                System.out.println("id не найден");
+                break;
             }
         }
-        return result;
+        System.out.println(result);
     }
     /**
      * Метод генерирует уникальный ключ для заявки.

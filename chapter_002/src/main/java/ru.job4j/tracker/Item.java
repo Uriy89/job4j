@@ -30,9 +30,9 @@ public class Item {
     }
     @Override
     public String toString() {
-        return "Item{id='" + id + '\''
+        return "id='" + id + '\''
                 + ", name='" + name + '\''
                 + ", desc='" + desc + '\''
-                + ", create=" + create + '}';
+                + ", create=" + create;
     }
 }
