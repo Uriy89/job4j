@@ -12,7 +12,11 @@ class EditItem implements UserAction {
         String desc = input.ask("Введите описание заявки: ");
         Item item = new Item(desc, name);
         item.setId(id);
-        tracker.replace(id, item);
+        if (tracker.replace(id, item)) {
+            System.out.println("Заявка успешно изменена!");
+        } else {
+            System.out.println("id не найден");
+        }
     }
 
     public String info() {
@@ -70,6 +74,7 @@ public class MenuTracker {
             String name = input.ask("Введите имя заявки: ");
             String desc = input.ask("Введите описание заявки: ");
             tracker.add(new Item(desc, name));
+            System.out.println("Заявка успешно добавлена!");
         }
 
         public String info() {
@@ -106,8 +111,12 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             String id = input.ask("Введите id заявки: ");
             tracker.delete(id);
+            if (tracker.delete(id)) {
+                System.out.println("Заявка успешно удалена!");
+            } else {
+                System.out.println("id не найден!");
+            }
         }
-
         public String info() {
             return String.format("%s. %s", this.key(), "Удаление заявки.");
         }
@@ -121,7 +130,8 @@ public class MenuTracker {
         }
         public void execute(Input input, Tracker tracker) {
             String id = input.ask("Введите id заявки: ");
-            tracker.findById(id);
+            Item byId = tracker.findById(id);
+            System.out.println(byId);
         }
 
         public String info() {

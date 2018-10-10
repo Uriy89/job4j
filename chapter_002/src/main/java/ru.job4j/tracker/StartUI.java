@@ -5,7 +5,7 @@ package ru.job4j.tracker;
  */
 public class StartUI {
     private Input input;
-
+    private int[] ranges = new int[]{0, 1, 2, 3, 4, 5};
     public StartUI(Input input) {
         this.input = input;
     }
@@ -19,12 +19,11 @@ public class StartUI {
 
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("Выберете пункт: "));
-            menu.select(key);
+            menu.select(input.ask("Выбор: ", ranges));
         } while(!"q".equals(this.input.ask("Для выхода нажмите: q  ")));
     }
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         new StartUI(input).init();
     }
 }

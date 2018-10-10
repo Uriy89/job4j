@@ -21,6 +21,7 @@ public class Tracker {
     public Item add(Item item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
+
         return item;
     }
     /**
@@ -51,8 +52,6 @@ public class Tracker {
                 position--;
                 result = true;
                 break;
-            } else {
-                System.out.println("id не найден");
             }
         }
         return result;
@@ -84,18 +83,15 @@ public class Tracker {
      * @param id - аргумент для сравнения элементов.
      * @return возвращает найденый элемент.
      */
-    protected void findById(String id) {
+    protected Item findById(String id) {
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
-            } else {
-                System.out.println("id не найден");
-                break;
             }
         }
-        System.out.println(result);
+        return result;
     }
     /**
      * Метод генерирует уникальный ключ для заявки.
