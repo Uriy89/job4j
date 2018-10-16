@@ -33,6 +33,7 @@ public class MenuTracker {
      * Хранилище заявок.
      */
     private final Tracker tracker;
+    private int position = 0;
     private UserAction[] actions = new UserAction[6];
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -43,13 +44,18 @@ public class MenuTracker {
      * Метод управления меню.
      */
     public void fillActions() {
-        this.actions[0] = this.new AddItem();
-        this.actions[1] = new MenuTracker.ShowItems();
-        this.actions[2] = new EditItem();
-        this.actions[3] = new MenuTracker.DeleteItems();
-        this.actions[4] = new MenuTracker.FindByIdItems();
-        this.actions[5] = new MenuTracker.FindByNameItems();
+        this.actions[position++] = this.new AddItem();
+        this.actions[position++] = new MenuTracker.ShowItems();
+        this.actions[position++] = new EditItem();
+        this.actions[position++] = new MenuTracker.DeleteItems();
+        this.actions[position++] = new MenuTracker.FindByIdItems();
+        this.actions[position++] = new MenuTracker.FindByNameItems();
     }
+
+    public void addActions(UserAction action) {
+        this.actions[position++] = action;
+    }
+
     public void select(int key) {
         this.actions[key].execute(this.input, this.tracker);
     }
@@ -131,7 +137,11 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             String id = input.ask("Введите id заявки: ");
             Item byId = tracker.findById(id);
-            System.out.println(byId);
+            if (byId != null) {
+                System.out.println(byId);
+            } else {
+                System.out.println("id не найден!");
+            }
         }
 
         public String info() {
@@ -148,8 +158,12 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             String key = input.ask("Введите имя заявки: ");
             Item[] byKey = tracker.findByName(key);
-            for (Item item : byKey) {
-                System.out.println(item);
+            if (byKey.length != 0) {
+                for (Item item : byKey) {
+                    System.out.println(item);
+                }
+            } else {
+                System.out.println("Имя не найдено!");
             }
         }
 
