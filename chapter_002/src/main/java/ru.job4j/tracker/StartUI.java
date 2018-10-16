@@ -19,7 +19,7 @@ public class StartUI {
         do {
             menu.show();
             menu.select(input.ask("Выбор: ", ranges));
-        } while(!"q".equals(this.input.ask("Для выхода нажмите: q  ")));
+        } while (!"q".equals(this.input.ask("Для выхода нажмите: q  ")));
     }
     public static void main(String[] args) {
         new StartUI(
