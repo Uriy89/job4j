@@ -8,9 +8,36 @@ public class PhoneDictionaryTest {
     public void whenFindByName() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
-                new Person("Yuriy", "Averianov", "934-67-73", "SPb")
+                new Person("Yuriy", "Averianov", "9346773", "SPb")
         );
         List<Person> persons = phones.find("Yuriy");
         assertThat(persons.iterator().next().getSurname(), is("Averianov"));
+    }
+    @Test
+    public void whenFindBySurname() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Yuriy", "Averianov", "9346773", "SPb")
+        );
+        List<Person> persons = phones.find("Averianov");
+        assertThat(persons.iterator().next().getName(), is("Yuriy"));
+    }
+    @Test
+    public void whenFindByPhone() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Yuriy", "Averianov", "9346773", "SPb")
+        );
+        List<Person> persons = phones.find("9346773");
+        assertThat(persons.iterator().next().getName(), is("Yuriy"));
+    }
+    @Test
+    public void whenFindByAddres() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Yuriy", "Averianov", "9346773", "SPb")
+        );
+        List<Person> persons = phones.find("SPb");
+        assertThat(persons.iterator().next().getName(), is("Yuriy"));
     }
 }
