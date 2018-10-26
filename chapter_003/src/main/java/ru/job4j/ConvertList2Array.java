@@ -5,12 +5,9 @@ public class ConvertList2Array {
         int cells = rows;
         int[][] array = new int[rows][cells];
         for (int i : list) {
-            for (int j : list) {
-                if (j == rows) {
-                    cells = list.indexOf(rows);
-                }
-            }
-            array[rows][cells] = (list.indexOf(i));
+           if (i == rows) {
+
+           }
         }
         return array;
     }
