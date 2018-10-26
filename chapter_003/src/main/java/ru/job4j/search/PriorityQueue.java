@@ -8,10 +8,10 @@ public class PriorityQueue {
      * Для вставки использовать add(int index, E value)
      */
     public void put(Task task) {
-        int size = tasks.size();
+        int size = 0;
         for (int index = 0; index < this.tasks.size(); index++) {
             if (task.getPriority() < tasks.get(index).getPriority()) {
-                size = tasks.indexOf(tasks.get(index));
+                size = index;
                 break;
             }
         }
