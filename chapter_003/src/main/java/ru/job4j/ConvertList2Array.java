@@ -17,11 +17,10 @@ public class ConvertList2Array {
         return array;
     }
     public List<Integer> convert (List<int[]> list) {
-        int index = 0;
         List<Integer> arr = new ArrayList<>();
         for (int[] i : list) {
             for (int j : i) {
-                arr.add(index, j);
+                arr.add(j);
             }
         }
         return arr;
