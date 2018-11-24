@@ -13,5 +13,8 @@ public class UserConvertTest {
         list.add(user);
         UserConvert userConvert = new UserConvert();
         HashMap<Integer, User> map = userConvert.process(list);
+        HashMap<Integer, User> exeprtion = new HashMap<>();
+        exeprtion.put(1, user);
+        assertThat(map, is(exeprtion));
     }
 }

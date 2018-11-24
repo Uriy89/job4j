@@ -1,7 +1,5 @@
 package ru.job4j;
 import org.junit.Test;
-
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,7 +27,9 @@ public class ConvertList2ArrayTest {
         List<int[]> list = new ArrayList<>();
         list.add(new int[]{1, 2, 3});
         list.add(new int[]{4, 5});
+        list.add(new int[]{6});
+        List<Integer> expect = Arrays.asList(1, 2, 3, 4, 5, 6);
         List<Integer> result = convertList.convert(list);
-        System.out.print(result);
+        assertThat(result, is(expect));
     }
 }
