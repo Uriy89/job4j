@@ -20,7 +20,7 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(this.generateId());
-        this.items.add(position++, item);
+        this.items.add(items.size(), item);
         return item;
     }
     /**
