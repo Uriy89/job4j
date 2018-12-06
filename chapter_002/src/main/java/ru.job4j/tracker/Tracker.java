@@ -11,10 +11,6 @@ public class Tracker {
     private final List<Item> items = new ArrayList<>();
     public static final Random RN = new Random();
     /**
-     * Указатель ячейки для новой заявки.
-     */
-    private int position = 0;
-    /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
      */
@@ -28,7 +24,7 @@ public class Tracker {
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < items.size(); i++) {
             if (item != null && items.get(i).getId().equals(id)) {
                 items.set(i, item);
                 item.setId(id);
@@ -44,7 +40,7 @@ public class Tracker {
     public boolean delete(String id) {
         boolean result = false;
         Iterator it = items.iterator();
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getId().equals(id)) {
                 items.remove(it);
                 result = true;
