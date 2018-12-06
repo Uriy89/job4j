@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import java.util.List;
 /**
  * Класс перезаписания заявки.
  */
@@ -157,8 +158,8 @@ public class MenuTracker {
         }
         public void execute(Input input, Tracker tracker) {
             String key = input.ask("Введите имя заявки: ");
-            Item[] byKey = tracker.findByName(key);
-            if (byKey.length != 0) {
+            List<Item> byKey = tracker.findByName(key);
+            if (byKey.size() != 0) {
                 for (Item item : byKey) {
                     System.out.println(item);
                 }

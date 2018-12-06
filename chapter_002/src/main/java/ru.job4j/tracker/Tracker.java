@@ -8,7 +8,7 @@ public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
     public static final Random RN = new Random();
     /**
      * Указатель ячейки для новой заявки.
@@ -20,7 +20,7 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(this.generateId());
-        this.items[this.position++] = item;
+        this.items.add(position++, item);
         return item;
     }
     /**
@@ -29,8 +29,8 @@ public class Tracker {
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int i = 0; i < position; i++) {
-            if (item != null && items[i].getId().equals(id)) {
-                items[i] = item;
+            if (item != null && items.get(i).getId().equals(id)) {
+                items.set(i, item);
                 item.setId(id);
                 result = true;
                 break;
@@ -43,12 +43,10 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        int count = 0;
+        Iterator it = items.iterator();
         for (int i = 0; i < position; i++) {
-            if (items[i].getId().equals(id)) {
-                items[i] = items[count];
-                System.arraycopy(this.items, i + 1, this.items, i, items.length - i - 1);
-                position--;
+            if (items.get(i).getId().equals(id)) {
+                items.remove(it);
                 result = true;
                 break;
             }
@@ -59,23 +57,22 @@ public class Tracker {
      * Метод возвращает копию массива без null элементтов.
      * @return копия массива.
      */
-    public Item[] findAll() {
-        return Arrays.copyOf(this.items, this.position);
+    public List<Item> findAll() {
+        return items;
     }
     /**
      * Метод проверяет все элементы массива с аргументом key
      * Если элементы совпадают, они записываются в новый массив.
      * @return Массив с проверенными элементами.
      */
-    public Item[] findByName(String key) {
-        int count = 0;
-        Item[] result = new Item[position];
-        for (int i = 0; i < result.length; i++) {
-            if (items[i].getName().equals(key)) {
-                result[count++] = items[i];
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<>();
+        for (Item i : items) {
+            if (i.getName().equals(key)) {
+                result.add(i);
             }
         }
-        return Arrays.copyOf(result, count);
+        return result;
     }
     /**
      *  Метод проверяет элементы массива.
