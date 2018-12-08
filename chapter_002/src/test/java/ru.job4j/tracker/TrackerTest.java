@@ -2,14 +2,15 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-/**
+import java.util.Arrays;
+import java.util.List;
 public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "name", 123L);
         tracker.add(item);
-        assertThat(tracker.findAll()[0], is(item));
+        assertThat(tracker.findAll().get(0), is(item));
     }
     @Test
     public void  whenDeleteItemThenReturnNewArrayWithoutItem() {
@@ -21,7 +22,7 @@ public class TrackerTest {
         tracker.add(items[0]);
         tracker.add(items[1]);
         tracker.delete(item.getId());
-        assertThat(tracker.findAll(), is(items));
+        assertThat(tracker.findAll(), is(Arrays.asList(items)));
     }
     @Test
     public void  whenReplaceNameThenReturnNewName() {
@@ -40,9 +41,9 @@ public class TrackerTest {
         tracker.add(item1);
         Item item2 = new Item("test2", "name2", 345L);
         tracker.add(item2);
-        Item result = tracker.findAll()[0];
-        result.setId(tracker.findAll()[0].getId());
-        assertThat(tracker.findAll()[0], is(result));
+        Item result = tracker.findAll().get(0);
+        result.setId(tracker.findAll().get(0).getId());
+        assertThat(tracker.findAll().get(0), is(result));
     }
     @Test
     public void whenFindByNameThenReturnItem() {
@@ -51,8 +52,7 @@ public class TrackerTest {
         tracker.add(item1);
         Item item2 = new Item("test2", "name2", 345L);
         tracker.add(item2);
-        Item[] result = tracker.findByName("name2");
+        List<Item> result = tracker.findByName("name2");
         assertThat(tracker.findByName("name2"), is(result));
     }
 }
-**/
