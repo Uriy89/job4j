@@ -14,8 +14,12 @@ public class SortUserTest {
         list.add(new User("Tom", 23));
         list.add(new User("Nic", 20));
         list.add(new User("Ron", 32));
+        List<User> exept = new ArrayList<>();
+        exept.add(new User("Nic", 20));
+        exept.add(new User("Tom", 23));
+        exept.add(new User("Ron", 32));
         SortUser sortUser = new SortUser();
         Set<User> users = sortUser.sort(list);
-
+        assertThat(users, is(exept));
     }
 }
