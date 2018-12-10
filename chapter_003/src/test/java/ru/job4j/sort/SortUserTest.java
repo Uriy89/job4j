@@ -20,6 +20,6 @@ public class SortUserTest {
         exept.add(new User("Ron", 32));
         SortUser sortUser = new SortUser();
         Set<User> users = sortUser.sort(list);
-        assertThat(users, is(exept));
+        assertThat(users.toString(), is(exept.toString()));
     }
 }
