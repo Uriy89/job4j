@@ -5,10 +5,6 @@ import java.util.TreeSet;
 
 public class SortUser {
     public Set<User> sort(List<User> list) {
-       Set<User> result = new TreeSet<>();
-       for (User us : list) {
-           result.add(us);
-       }
-       return result;
+        return new TreeSet<>(list);
     }
 }
