@@ -16,7 +16,7 @@ public class SortUser {
         return list;
     }
 
-    public List<User> sortByAllFields (List<User> list) {
+    public List<User> sortByAllFields(List<User> list) {
         Collections.sort(list, new Comparator<User>() {
             @Override
             public int compare(User user, User t1) {
