@@ -7,27 +7,22 @@ import java.util.*;
  * @since 04.01.2019;
  */
 public class Manager {
-    private final User user = new User();
-    private final Account account = new Account();
-    private final List<User> users = new ArrayList<>();
-    //private final List<Account> account = new ArrayList<>();
     private final Map<User, List<Account>> usersAccounts = new HashMap<>();
-    public static final Random RN = new Random();
-    private String name;
-    private String passport;
+    private final List<Account> accounts = new ArrayList<>();
+
     /**
      * добавление пользователя;
      * @param user - овый пользователь;
      */
     public void addUser(User user) {
-       this.users.add(users.size(), user);
+        this.usersAccounts.put(user, accounts);
     }
     /**
      * удаление пользователя;
      * @param user - данные пользователя;
      */
     public void deleteUser(User user) {
-        this.users.remove(user.getPassport());
+        this.usersAccounts.remove(user);
     }
     /**
      * добавить счёт пользователю;
@@ -35,27 +30,35 @@ public class Manager {
      * @param account - новый аккаунт;
      */
     public void addAccountToUser(String passport, Account account) {
-        List<Account> result = new ArrayList<>();
-        result.add(result.size(), account);
-        this.usersAccounts.putIfAbsent(user.setPassport(passport), result);
+        for(User user : this.usersAccounts.keySet()) {
+            if(user.getPassport().equals(passport)) {
+                final List<Account> accounts = usersAccounts.get(user);
+                if(!accounts.contains(account)) {
+                accounts.add(account);
+                }
+            }
+        }
+
     }
     /**
      * удалить один счёт пользователя;
      * @param passport - номер паспорта;
      * @param account - aккаунт;
      */
-    public void deleteAccountFromUser(String passport, Account account) {}
+    public void deleteAccountFromUser(String passport, Account account) {
+        this.usersAccounts.remove(passport, account);
+    }
 
     /**
      * получить список счетов для пользователя;
-     * @param passport
+     * @param passport - паспорт пользователя;
      * @return - возвращает список всех счетов пользователя;
      */
     public List<Account> getUserAccounts (String passport) {
-        Map<User, List<Account>> result = new HashMap<>();
-        for(User i : users) {
-            if(i.getPassport().equals(passport)) {
-                usersAccounts.put(i, result);
+        List<Account> result = new ArrayList<>();
+        for(Account i : usersAccounts.get(passport)) {
+            if(i.equals(passport)) {
+                result.add(i);
             }
         }
         return result;
@@ -63,21 +66,20 @@ public class Manager {
 
     /**
      * метод для перечисления денег с одного счёта на другой счёт:
-     * если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят) должен вернуть false;
-     * @param srcPassport
-     * @param srcRequisite
-     * @param destPassport
-     * @param dstRequisite
-     * @param amount
-     * @return
+     * @param srcPassport  - паспорт первого пользователя;
+     * @param srcRequisite - реквезиты первого пользователя;
+     * @param destPassport - паспорт второго пользователя;
+     * @param dstRequisite - реквезиты второго пользователя;
+     * @param amount       - переводимая сумма;
+     * @return             - возвращает результат перевода true или folse;
      */
-    public boolean transferMoney (String srcPassport, String srcRequisite, String destPassport, String dstRequisite, double amount) {}
-    /**
-     * Метод генерирует уникальный номер счета для заявки.
-     * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
-     * @return Уникальный ключ.
-     */
-    private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+    public boolean transferMoney (String srcPassport, String srcRequisite, String destPassport, String dstRequisite, double amount) {
+        boolean result = false;
+        for(User user : this.usersAccounts.keySet()) {
+            if(user.getPassport().equals(srcPassport)) {
+              //  final List<Account> accounts =;
+            }
+        }
+        return result;
     }
 }

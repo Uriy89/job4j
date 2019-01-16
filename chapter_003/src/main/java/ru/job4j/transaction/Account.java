@@ -1,6 +1,8 @@
 package ru.job4j.transaction;
 
+import java.lang.reflect.Array;
 import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -10,7 +12,6 @@ import java.util.Random;
 public class Account {
     private double value;
     private String requisites;
-    public static final Random RN = new Random();
 
     public Account(double value, String requisites) {
         this.value = value;
@@ -30,7 +31,4 @@ public class Account {
         this.value = value;
     }
 
-    private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
-    }
 }

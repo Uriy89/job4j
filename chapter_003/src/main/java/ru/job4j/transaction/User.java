@@ -29,4 +29,19 @@ public class User {
     public void setPassport(String passport) {
         this.passport = passport;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(!(o instanceof User)) return false;
+        User user = (User) o;
+        if(!passport.equals(user.name) || !passport.equals(user.passport)) return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return passport.hashCode();
+    }
+
 }
